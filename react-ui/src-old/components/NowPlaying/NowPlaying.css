@@ -1,0 +1,22 @@
+.barChart {
+  display: flex !important;
+  align-items: center;
+  /* justify-content: center !important; */
+}
+
+.nowPlaying {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.nowPlayingHeader {
+  padding-top: 10% !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.rv-discrete-color-legend-item__title {
+  color: white;
+}
