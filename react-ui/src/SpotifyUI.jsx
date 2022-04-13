@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import 'aframe';
 import { Entity, Scene } from 'aframe-react';
 import 'aframe-event-set-component';
-import SpotifyPlayer from 'react-spotify-web-playback';
-import moment from 'moment';
-
-import floor from "./assets/floor.png";
-import playImg from './assets/play.png';
-import pauseImg from './assets/pause.png';
 import LyricsUI from './LyricsUI';
 
 let deviceId = '';
@@ -120,7 +114,7 @@ function SpotifyUI(props) {
             <>
                 <a-scene>
                     <a-assets>
-                        <img id="floor" src={floor} />
+                        {/* <img id="floor" src={floor} /> */}
                     </a-assets>
                     <a-sky color="#222222"></a-sky>
                     {/* <a-plane material="src:#floor; repeat: 700 700; transparent: true;" height="500" width="500" rotation="-90 0 0"></a-plane> */}
