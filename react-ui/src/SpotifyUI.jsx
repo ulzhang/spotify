@@ -118,8 +118,9 @@ function SpotifyUI(props) {
                     </a-assets>
                     <a-sky color="#222222"></a-sky>
                     {/* <a-plane material="src:#floor; repeat: 700 700; transparent: true;" height="500" width="500" rotation="-90 0 0"></a-plane> */}
-                    <a-entity cursor="rayOrigin: mouse">
-                    </a-entity>
+                    <a-camera>
+                            <a-cursor></a-cursor>
+                    </a-camera>
                     {/* <Entity 
                         primitive='a-plane' 
                         color="red" 
