@@ -4,6 +4,7 @@ import WebPlayback from './WebPlayback'
 import VRPlayback from './VRPlayback';
 import Login from './Login'
 import TestScene from './TestScene';
+import SpotifyUI from './SpotifyUI';
 
 function App() {
 
@@ -42,44 +43,13 @@ function App() {
           }
           return hashParams;
         };
-
-    // async function getToken() {
-    //   const response = await fetch('/auth/token', {
-    //     method: 'GET',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   });
-    //   console.log(response)
-    //   const json = await response.json();
-    //   console.log(json)
-    //   setToken(json.access_token);
-    // }
-    //     getToken();
-
-
-      // fetch('/auth/token', {
-      //   method: 'GET',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-      // }).then(async response => {
-      //   try {
-      //    const data = await response.json()
-      //    console.log('response data?', data)
-      //  } catch(error) {
-      //    console.log('Error happened here!')
-      //    console.error(error)
-      //  }
-      // })
-    
-
   }, []);
 
   return (
     <>
         {/* { (token === '' || token === undefined) ? <Login url={loginURL}/> : <WebPlayback token={token} /> } */}
-        { (token === '' || token === undefined) ? <Login url={loginURL}/>  : <VRPlayback token={token} /> }
+        {/* { (token === '' || token === undefined) ? <Login url={loginURL}/>  : <VRPlayback token={token} /> } */}
+        { (token === '' || token === undefined) ? <Login url={loginURL}/>  : <SpotifyUI token={token} /> }
         {/* <TestScene></TestScene> */}
     </>
   );

@@ -7,6 +7,7 @@ const axios = require("axios");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
+const lyricsFinder = require('lyrics-finder');
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID || null;
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET || null;
@@ -33,7 +34,17 @@ app.use(cors());
 app.get("/login", (req, res, next) => {
   const state = uuid();
   const scope =
-    "streaming user-read-private user-read-email user-read-recently-played user-top-read playlist-modify-private";
+    "streaming \
+    user-read-private \
+    user-read-email \
+    user-read-playback-state \
+    user-modify-playback-state \
+    user-library-read \
+    user-library-modify \
+    user-read-recently-played \
+    user-top-read \
+    playlist-modify-private \
+    ";
 
   res.cookie(authStateKey, state);
 
@@ -145,6 +156,26 @@ app.get("/refresh-token", (req, res, next) => {
       console.log(err);
       res.status(500).send(); //check axios documentation for err.response.error
     });
+});
+
+app.get('/getLyrics', async (req, res) => {
+    const artist = req.query.artist;
+    const title = req.query.title;
+
+    console.log(`Lyrics search: ${artist} - ${title}...`);
+    try {
+      const lyrics = (await lyricsFinder(artist, title)) || null;
+
+      if (!lyrics) {
+        throw new Error('No lyrics found');
+      }
+
+      console.log('Lyrics found.');
+      res.status(200).json({ lyrics });
+    } catch (e) {
+      console.log(`Error occurred while searching: ${e}`);
+      res.status(404).send();
+    }
 });
 
 // // Priority serve any static files.
