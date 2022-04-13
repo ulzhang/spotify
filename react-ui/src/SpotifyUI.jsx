@@ -3,7 +3,6 @@ import 'aframe';
 import { Entity, Scene } from 'aframe-react';
 import 'aframe-event-set-component';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import footer from "./Footer.css";
 import moment from 'moment';
 
 import floor from "./assets/floor.png";
