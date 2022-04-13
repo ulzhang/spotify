@@ -13,16 +13,6 @@ function SpotifyUI(props) {
     const [player, setPlayer] = useState(undefined);
     const [current_track, setTrack] = useState({});
 
-    const relative = {
-        position: "relative"
-    }
-    const overlay = {
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        zIndex: "9999"
-    }
-
     useEffect(() => {
 
         const script = document.createElement("script");
@@ -74,7 +64,7 @@ function SpotifyUI(props) {
                       device_ids:[
                         data.device_id
                       ],
-                      play: false
+                      play: true
                     }),
                     headers: {
                       'Authorization': `Bearer ${props.token}`
@@ -132,30 +122,36 @@ function SpotifyUI(props) {
                     />  */}
                     <Entity 
                         primitive='a-plane' 
-                        color="red" 
-                        position="-3 0.5 -5" 
+                        color="gray" 
+                        position="-1.1 -0.5 -3" 
                         class="clickable"
-                        events={{click: _prevTrack}}                      
-                    /> 
+                        events={{click: _prevTrack}} 
+                        event-set__mouseenter="scale: 1.2 1.2 1"
+                        event-set__mouseleave="scale: 1 1 1"                          
+                    ><a-text value="<<" align="center" /></Entity>
                     <Entity 
                         primitive='a-plane' 
                         color="green"
-                        position="0 0.5 -5" 
+                        position="0 -0.5 -3" 
                         class="clickable"
-                        events={{click: _toggleTrack}}                    
-                    /> 
+                        events={{click: _toggleTrack}}   
+                        event-set__mouseenter="scale: 1.2 1.2 1"
+                        event-set__mouseleave="scale: 1 1 1"                      
+                    ><a-text value={ is_paused ? ">" : "||" } align="center" /></Entity>
                     <Entity 
                         primitive='a-plane' 
-                        color="blue" 
-                        position="3 0.5 -5" 
+                        color="gray" 
+                        position="1.1 -0.5 -3" 
                         class="clickable"
-                        events={{click: _nextTrack}}                
-                    /> 
+                        events={{click: _nextTrack}}  
+                        event-set__mouseenter="scale: 1.2 1.2 1"
+                        event-set__mouseleave="scale: 1 1 1"                   
+                    ><a-text value=">>" align="center" /></Entity>
  
                     <Entity 
                         primitive='a-plane' 
                         src={current_track.album.images[0].url} 
-                        position="0 25 -25"
+                        position="0 0 -25"
                         height="50"
                         width="50"                    
                     /> 

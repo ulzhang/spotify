@@ -29,7 +29,7 @@ function LyricsUI(props) {
 
     function _createLine(line, index, arr) {
         const x = 0
-        const y = 1.6
+        const y = 6
         const z = -6
         const yOffset = arr.length
 
