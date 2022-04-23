@@ -1,0 +1,19 @@
+# SPOTIFY
+
+403 Player Put
+
+- What
+    - Randomly began to disallow playback transfer to client.
+- Fix
+    - I restarted all spotify instances and closed all client instances. Opened desktop client and confirmed I could play music.
+- Why
+    - I think there is a playback session that must have been misconfigured on Spotify’s server side. I was listening to Spotify on my mobile in the morning. I was also using the platform on Quest last night.
+
+# HEROKU
+
+Host Key Verification
+
+- Add SSH Buildpack (before Node Buildpack)
+- Add SSH keys to config vars
+- Add SSH Keys to Git repo
+- [https://stackoverflow.com/questions/69923108/heroku-how-to-deploy-a-nodejs-app-with-a-private-repo-dependency](https://stackoverflow.com/questions/69923108/heroku-how-to-deploy-a-nodejs-app-with-a-private-repo-dependency)
